@@ -228,11 +228,11 @@ class ProxyManager {
                 if (code === 404) {
                     throw new NotFoundError("Resource not found.");
                 } else if (code === 403) {
-                    Logger.info(`Removing proxy ${proxy.ip}:${proxy.port} due to access forbidden error.`);
+                    Logger.debug(`Removing proxy ${proxy.ip}:${proxy.port} due to access forbidden error.`);
                     this.removeTemporarlyInvalidProxy(proxy);
                     throw new ForbiddenError("Access forbidden. IP: " + error.response);
                 } else if (code === 429) {
-                    Logger.info(`Removing proxy ${proxy.ip}:${proxy.port} due to rate limit error.`);
+                    Logger.debug(`Removing proxy ${proxy.ip}:${proxy.port} due to rate limit error.`);
                     this.removeTemporarlyInvalidProxy(proxy, 20000);
                     throw new RateLimitError("Rate limit exceeded. IP: " + error.response);
                 } else {
