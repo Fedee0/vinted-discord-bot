@@ -8,7 +8,6 @@ const extension = settings.vinted_api_domain_extension
 
 /**
  * Fetches the session cookie from the headers of the response to a GET request to the given URL.
- * @param {string} url
  * @returns {Promise<{cookie: string}>}
  * @throws {DetailedExecutionResultError}
  */
